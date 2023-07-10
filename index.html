@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<head>
+    <title>SICEC</title>
+
+    <style>
+        /*Section */
+        .section {
+            display: none;
+        }
+
+        section:not(#home_documentos_sicec) {
+            display: none;
+        }
+
+
+        /*IMG home*/
+        .img_home {
+            top: 0;
+            left: 0;
+            max-width: 100%;
+            max-height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        /*---------------------Búsqueda Inicia CSS------------------------- */
+        .search-container {
+            position: absolute;
+            left: 2rem;
+            max-width: 10rem;
+        }
+
+        #search-bar {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 5);
+            outline: none;
+            z-index: 9999;
+        }
+
+        /*
+        .search-container button {
+            background-color: #688db9;
+            border: none;
+            color: white;
+            padding: 10px;
+            margin-left: 5px;
+            cursor: pointer;
+            transition: background-color 0.4s ease;
+            <!--Añadir icono-->
+            background-image: url("search-icon.png");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 20px;
+        }
+*/
+        .search-container button:hover {
+            background-color: #3c5e81;
+            transform: scale(1.1);
+        }
+
+        /*---------------------Búsqueda Termina CSS------------------------- */
+
+        /*Title/Heading(h2) */
+        .heading {
+            font-size: 36px;
+            color: #141579;
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        /*---------------------container------------------------- */
+        .container {
+            min-height: 90vh;
+            background: linear-gradient(to top left, #bfdaf0, #ffffff);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        /*---------------------Body,Row, Col, Inicia CSS------------------------- */
+        body {
+            margin: 5% 0 0 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to top left, #bfdaf0, #ffffff);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            /* Centra los elementos horizontalmente */
+            margin: 10px 0;
+            padding: 30px;
+        }
+
+        .col {
+            flex: 1;
+            padding: 10px;
+            max-width: calc(100% / 3);
+            /* Máximo de tres documentos por fila */
+        }
+
+
+        .col img {
+            display: block;
+            margin: 0 auto;
+            width: 10%;
+        }
+
+        .col:hover {
+            background-color: #bdd4e7;
+        }
+
+        .col:hover img {
+            transform: scale(1.2);
+            transition: transform 0.3s ease;
+        }
+
+        .col:hover p {
+            font-size: 24px;
+            transition: font-size 0.3s ease;
+        }
+
+        .col:hover a {
+            background-color: #1b3c64;
+            font-size: 20px;
+            transition: transform 0.4s ease;
+        }
+
+        .col p {
+            text-align: center;
+            margin: 8.5px 0;
+            font-size: 16px;
+        }
+
+        .col a {
+            display: block;
+            text-align: center;
+            color: #fff;
+            background-color: #8fa6c2;
+            padding: 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: all 0.4s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        /*---------------------Title, Header, Body,Row, Col, Termina CSS------------------------- */
+
+        .title-text {
+            margin: auto;
+            text-align: center;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+        }
+
+        header {
+            padding: 10px;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            position: fixed;
+            /* Agrega esta línea */
+            top: 0;
+            /* Opcional: ajusta la posición superior según tus necesidades */
+            left: 0;
+            /* Opcional: ajusta la posición izquierda según tus necesidades */
+            width: 100%;
+            /* Opcional: ajusta el ancho según tus necesidades */
+            background: linear-gradient(to right, #444986, #688db9);
+            color: #fff;
+            padding: 10px;
+            z-index: 999;
+            /* Opcional: ajusta el valor del índice z según tus necesidades */
+        }
+
+        .logo {
+            font-size: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hamburger-container {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 999;
+        }
+
+        .hamburger {
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 20px;
+        }
+
+        .hamburger:hover {
+            transform: scale(1.2);
+            transition-duration: 0.3s;
+        }
+
+        .hamburger div {
+            width: 100%;
+            height: 2px;
+            background-color: #fff;
+        }
+
+        .menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 250px;
+            max-height: 100vh;
+            /* Establece una altura máxima igual a la altura de la ventana */
+            background: linear-gradient(to right, #444986, #688db9);
+            color: #fff;
+            overflow-y: auto;
+            /* Permite el desplazamiento vertical cuando se desbordan los elementos */
+            transform: translateX(-250px);
+            transition: transform 0.3s ease;
+            z-index: 10;
+        }
+
+        .menu.active {
+            transform: translateX(0);
+
+        }
+
+        .menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px;
+            width: 100px;
+            /* Ajusta el ancho según sea necesario */
+        }
+
+        .menu ul li {
+            margin-bottom: 10px;
+        }
+
+        .menu ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .submenu {
+            display: none;
+        }
+
+        .submenu.active {
+            display: block;
+        }
+
+        .submenu ul {
+            list-style: none;
+            padding-left: 20px;
+        }
+
+        .submenu ul li {
+            margin-bottom: 5px;
+        }
+
+        .submenu ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .sidebar {
+            position: absolute;
+            top: 25%;
+            width: 100%;
+            text-align: left;
+            left: 1rem;
+
+        }
+
+        .sidebar ul {
+            list-style-type: circle;
+            padding: 0;
+        }
+
+        .sidebar li {
+            margin-bottom: 10px;
+        }
+
+        .sidebar a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .sidebar .submenu ul {
+            list-style-type: circle;
+            padding-left: 20px;
+        }
+
+        .sidebar .submenu ul li {
+            margin-bottom: 5px;
+        }
+
+        .sidebar .submenu ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        /*---------------------#No-Resultados, Inicia CSS------------------------- */
+        #no-results {
+            display: none;
+            text-align: center;
+            position: relative;
+            margin: auto;
+            top: 0;
+            transform: translateY(0);
+            color: #ff0000;
+            font-size: 30px;
+        }
+
+        /*---------------------#No-Resultados, Termina CSS------------------------- */
+
+        /*---------------------#Linea Divisora, Inicia CSS------------------------- */
+
+        .divisora {
+            border: none;
+            /* remueve el borde por defecto */
+            border-top: 2px solid black;
+            /* agrega una línea horizontal */
+            margin: 20px 50px;
+            /* agrega un margen superior e inferior */
+        }
+
+        /*---------------------#Linea Divisora, Termina CSS------------------------- */
+
+        @media screen and (max-width: 768px) {
+
+            #no-results:empty {
+                position: absolute;
+                display: block;
+                text-align: center;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, 50%);
+                font-size: 30px;
+            }
+
+            h1 {
+                font-size: 28px;
+                text-align: center;
+            }
+
+            .search-container {
+                position: relative;
+                top: unset;
+                right: unset;
+                max-width: unset;
+                margin: 0 auto;
+                text-align: center;
+                margin-top: 20px;
+                width: 100%;
+            }
+
+            #search-bar {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+
+            .col {
+                flex-basis: calc(50% - 20px);
+                margin: 10px;
+            }
+
+            .col img {
+                display: block;
+                margin: 0 auto;
+                width: 30%;
+                transform: scale(1);
+            }
+
+            .col p {
+                font-size: 16px;
+                padding: 5px;
+            }
+
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .menu {
+                display: block;
+            }
+
+            .menu.active {
+                display: none;
+            }
+
+            .submenu {
+                display: none;
+            }
+
+            .submenu.active {
+                display: block;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+
+        <header>
+            <div class="navbar">
+                <div class="logo">
+                    <h1 class="title-text">Sistema de Calidad Educativo CEDI</h1>
+                </div>
+                <div class="hamburger-container">
+                    <div class="hamburger" onmouseenter="showMenu()">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+
+
+        <nav id="menu" class="menu" onmouseleave="hideMenu()">
+            <div class="sidebar">
+                <ul><!--Inicia todos Documentos SICEC-->
+                    <li> <!--Inicia lista de Documentos SICEC-->
+                        <a href="#home_documentos_sicec" onclick="toggleSubmenu('submenu1')">Documentos SICEC</a>
+                        <ul id="submenu1" class="submenu"><!--Abre submenu1-->
+
+                            <li><!--inicia Auditoría-->
+                                <a href="#home_documentos_sicec" onclick="toggleSubmenu('submenu1_1')">Auditoría</a>
+                            </li>
+                            <ul id="submenu1_1" class="submenu"><!--Abre submenu1_1-->
+                                <li><a href="#reporte_integral_de_auditoria" tittle="Reporte Integral de Auditoria">Reporte Integral de Auditoria</a></li>
+                            </ul><!--Cierra submenu 1_1-->
+                            <!--termina Auditoría-->
+
+                            <li><!--inicia Capacitación-->
+                                <a href="#home_documentos_sicec" onclick="toggleSubmenu('submenu1_2')">Capacitación</a>
+                            </li>
+                            <ul id="submenu1_2" class="submenu"><!--Abre submenu1_2-->
+                                <li><a href="#Cursos de capacitación" tittle="Cursos de capacitación">Cursos de capacitación</a></li>
+                            </ul><!--Cierra submenu 1_2-->
+                            <!--termina Capacitación-->
+
+                            <li><!--inicia documentos de calidad-->
+                                <a href="#home_documentos_sicec" onclick="toggleSubmenu('submenu1_3')">Documentos de
+                                    Calidad</a>
+                            </li>
+                            <ul id="submenu1_3" class="submenu"><!--Abre submenu1_3-->
+                                <li><a href="#documentos_de_calidad_2" title="Documentos de Calidad">Documentos de
+                                        Calidad</a></li>
+                                <li><a href="#organigramas" title="Organigramas">Organigramas</a></li>
+                                <li><a href="#calendarios_escolares" title="Calendarios Escolares">Calendarios
+                                        Escolares</a></li>
+                            </ul><!--Cierra submenu 1_3-->
+                            <!--termina documentos de calidad-->
+
+                            <li><!--inicia Formatos / Registros-->
+                                <a href="#home_documentos_sicec" onclick="toggleSubmenu('submenu1_4')">Formatos / Registros</a>
+                            </li>
+                            <ul id="submenu1_4" class="submenu"><!--Abre submenu1_4-->
+                                <li><a href="#FF-AD" tittle="Formatos - Administración">FF-AD</a></li>
+                                <li><a href="#FF-AG" tittle="Formatos - Académico General">FF-AG</a></li>
+                                <li><a href="#FF-CC" tittle="Formatos - Control Calidad">FF-CC</a></li>
+                                <li><a href="#FF-CE" tittle="Formatos - Control Escolar">FF-CE</a></li>
+                                <li><a href="#FF-DG" tittle="Formatos - Dirección General">FF-DG</a></li>
+                                <li><a href="#FF-RH" tittle="Formatos - Recursos Humanos ">FF-RH</a></li>
+                                <li><a href="#FF-RP" tittle="Formatos - Promoción y Relaciones Públicas">FF-RP</a></li>
+                                <li><a href="#FF-SI" tittle="Formatos - Sistemas ">FF-SI</a></li>
+                                <li><a href="#FF-TV" tittle="Formatos - Talleres Vespertinos ">FF-TV</a></li>
+                            </ul><!--Cierra submenu 1_4-->
+                            <!--termina Formatos / Registros-->
+
+                            <li><!--inicia Formatos / Registros-->
+                                <a href="#home_documentos_sicec" onclick="toggleSubmenu('submenu1_5')">Instrucciones de Trabajo</a>
+                            </li>
+                            <ul id="submenu1_5" class="submenu"><!--Abre submenu1_5-->
+                                <li><a href="#IT-AD" tittle="Instrucciones de Trabajo  - Administración">IT-AD</a></li>
+                                <li><a href="#IT-AG" tittle="Instrucciones - Académico General">IT-AG</a></li>
+                                <li><a href="#IT-CC" tittle="Instrucciones - Control Calidad">IT-CC</a></li>
+                                <li><a href="#IT-CE" tittle="Instrucciones - Control Escolar">IT-CE</a></li>
+                                <li><a href="#IT-DG" tittle="Instrucciones - Dirección General">IT-DG</a></li>
+                                <li><a href="#IT-RH" tittle="Instrucciones - Recursos Humanos ">IT-RH</a></li>
+                                <li><a href="#IT-RP" tittle="Instrucciones - Promoción y Relaciones Públicas">IT-RP</a></li>
+                                <li><a href="#IT-SI" tittle="Instrucciones - Sistemas ">IT-SI</a></li>
+                                <li><a href="#IT-TV" tittle="Instrucciones - Talleres Vespertinos ">IT-TV</a></li>
+                            </ul><!--Cierra submenu 1_5-->
+                            <!--termina Instrucciones de Trabajo-->
+
+                            <!--inicia Manuales & Reglamentos-->
+                            <li><a href="#home_documentos_sicec" onclick="toggleSubmenu('submenu1_6')">Manuales &
+                                    Reglamentos</a>
+                            </li>
+                            <ul id="submenu1_6" class="submenu"><!--Abre submenu 1_6-->
+                                <li><a href="#Administrativos" title="Administrativos">Administrativos</a></li>
+                                <li><a href="#Alumnos" title="Alumnos">Alumnos</a></li>
+                                <li><a href="#Profesor" title="Profesor">Profesor</a></li>
+                            </ul><!--Cierra submenu 1_6-->
+                            <!--termina Manuales & Reglamentos-->
+
+                            <!--inicia Normatividades Externas-->
+                            <li><a href="#home_documentos_sicec" onclick="toggleSubmenu('submenu1_7')">Normatividades
+                                    Externas</a>
+                            </li>
+                            <ul id="submenu1_7" class="submenu"><!--Abre submenu 1_7-->
+                                <li><a href="#ISO" title="ISO">ISO</a></li>
+                            </ul><!--Cierra submenu 1_7-->
+                            <!--termina Normatividades Externas-->
+
+                            <!--inicia Perfiles de Puesto-->
+                            <li><a href="#home_documentos_sicec" onclick="toggleSubmenu('submenu1_8')">Perfiles de
+                                    Puesto</a>
+                            </li>
+                            <ul id="submenu1_8" class="submenu"> <!--Abre submenu 1_8-->
+                                <li><a href="#PP-AD" title="Perfiles de Puesto - Administrativo">PP-AD</a></li>
+                                <li><a href="#PP-AG" title="Perfil de Puesto - Académico General ">PP-AG</a></li>
+                                <li><a href="#PP-CC" title="Perfil de Puesto - Control de Calidad ">PP-CC</a></li>
+                                <li><a href="#PP-CE" title="Perfil de Puesto - Control Escolar">PP-CE</a></li>
+                                <li><a href="#PP-RH" title="Perfil de Puesto - Recursos Humanos">PP-RH</a></li>
+                                <li><a href="#PP-SI" title="Perfil de Puesto - Sistemas">PP-SI</a></li>
+                                <li><a href="#PP-TV" title="Perfil de Puesto - Talleres Vespertinos">PP-TV</a></li>
+                            </ul> <!--Cierra submenu1_8-->
+                            <!--termina perfiles de puesto-->
+
+                            
+                            <!--inicia Perfiles de Puesto-->
+                            <li><a href="#home_documentos_sicec" onclick="toggleSubmenu('submenu1_9')">Procedimientos</a>
+                        </li>
+                        <ul id="submenu1_9" class="submenu"> <!--Abre submenu 1_9-->
+                            <li><a href="#P-AD" title="Procedimientos - Administrativo">P-AD</a></li>
+                            <li><a href="#P-AG" title="Procedimientos - Académico General ">P-AG</a></li>
+                            <li><a href="#P-CC" title="Procedimientos - Control de Calidad ">P-CC</a></li>
+                            <li><a href="#P-CE" title="Procedimientos - Control Escolar">P-CE</a></li>
+                            <li><a href="#P-DG" title="Procedimientos - Dirección General">P-DG</a></li>
+                            <li><a href="#P-RH" title="Procedimientos - Recursos Humanos">P-RH</a></li>
+                            <li><a href="#P-RP" title="Procedimientos - Recursos Promoción y
+                                Relaciones Públicas">P-RP</a></li>
+                            <li><a href="#P-SI" title="Procedimientos - Sistemas">P-SI</a></li>
+                            <li><a href="#P-TV" title="Procedimientos - Talleres Vespertinos">P-TV</a></li>
+                        </ul> <!--Cierra submenu1_9-->
+                        <!--termina perfiles de puesto-->
+
+                        </ul><!--Cierra submenu1-->
+                    </li><!--Termina lista de Documentos SICEC-->
+                </ul><!--Termina todos Documentos SICEC-->
+                <ul><!--Inicia Programas Académicos-->
+                    <li> <!--Inicia Programas Académicos-->
+                        <a href="#home_documentos_sicec" onclick="toggleSubmenu('submenu2')">Programas Académicos</a>
+                        <ul id="submenu2" class="submenu"><!--Abre submenu2-->
+                
+                            <li><!--inicia Preescolar-->
+                                <a href="#home_documentos_sicec" onclick="toggleSubmenu('submenu2_1')">Preescolar</a>
+                            </li>
+                            <ul id="submenu2_1" class="submenu"><!--Abre submenu2_1-->
+                                <li><a href="#" tittle="Nivel - grado">#° grado </a></li>
+                                <li><a href="#" tittle="Nivel - grado">#° grado </a></li>
+                                <li><a href="#" tittle="Nivel - grado">#° grado </a></li>
+                            </ul><!--Cierra submenu 2_1-->
+                            <!--termina Preescolar-->
+                
+                            <li><!--inicia Primaria-->
+                                <a href="#home_documentos_sicec" onclick="toggleSubmenu('submenu2_2')">Primaria</a>
+                            </li>
+                            <ul id="submenu2_2" class="submenu"><!--Abre submenu2_2-->
+                                <li><a href="#" tittle="Nivel - grado">#° grado </a></li>
+                                <li><a href="#" tittle="Nivel - grado">#° grado </a></li>
+                                <li><a href="#" tittle="Nivel - grado">#° grado </a></li>
+                                <li><a href="#" tittle="Nivel - grado">#° grado </a></li>
+                                <li><a href="#" tittle="Nivel - grado">#° grado </a></li>
+                                <li><a href="#" tittle="Nivel - grado">#° grado </a></li>
+                            </ul><!--Cierra submenu 2_2-->
+                            <!--termina Primaria-->
+                
+                            <li><!--inicia Preescolar-->
+                                <a href="#home_documentos_sicec" onclick="toggleSubmenu('submenu2_3')">Secundaria</a>
+                            </li>
+                            <ul id="submenu2_3" class="submenu"><!--Abre submenu2_3-->
+                                <li><a href="#" tittle="Nivel - grado">#° grado </a></li>
+                                <li><a href="#" tittle="Nivel - grado">#° grado </a></li>
+                                <li><a href="#" tittle="Nivel - grado">#° grado </a></li>
+                            </ul><!--Cierra submenu 2_3-->
+                            <!--termina Secundaria-->
+                
+                            <li><!--inicia Primaria-->
+                                <a href="#home_documentos_sicec" onclick="toggleSubmenu('submenu2_4')">Bachillerato</a>
+                            </li>
+                            <ul id="submenu2_4" class="submenu"><!--Abre submenu2_4-->
+                                <li><a href="#" tittle="Nivel - Semestre">#° Semestre </a></li>
+                                <li><a href="#" tittle="Nivel - Semestre">#° Semestre </a></li>
+                                <li><a href="#" tittle="Nivel - Semestre">#° Semestre </a></li>
+                                <li><a href="#" tittle="Nivel - Semestre">#° Semestre </a></li>
+                                <li><a href="#" tittle="Nivel - Semestre">#° Semestre </a></li>
+                                <li><a href="#" tittle="Nivel - Semestre">#° Semestre </a></li>
+                            </ul><!--Cierra submenu 2_4-->
+                            <!--termina Primaria-->
+                
+                            <li><!--inicia Portafolios-->
+                                <a href="#home_documentos_sicec" onclick="toggleSubmenu('submenu2_5')">Portafolios</a>
+                            </li>
+                            <ul id="submenu2_5" class="submenu"><!--Abre submenu2_5-->
+                                <li><a href="#Evidencia Académica" tittle="Evidencia Académica">Evidencia Académica </a></li>
+                            </ul><!--Cierra submenu 2_5-->
+                            <!--termina Portafolios-->
+                
+                            <li><!--inicia Curricula-->
+                                <a href="#home_documentos_sicec" onclick="toggleSubmenu('submenu2_6')">Curricula</a>
+                            </li>
+                            <ul id="submenu2_6" class="submenu"><!--Abre submenu2_6-->
+                                <li><a href="#Curricula Academia CEDI" tittle="Curricula Academia CEDI">Curricula Academia CEDI</a></li>
+                            </ul><!--Cierra submenu 2_5-->
+                            <!--termina Curricula-->
+                            
+                        </ul><!--Cierra submenu1-->
+                    </li><!--Termina Programas Académicos-->
+                </ul><!--Termina Programas Académicos-->
+                    <a href="#3">Formularios CEDI</a>
+                    <ul id="submenu3" class="submenu">
+                        <li><a href="#">Calendario 1</a></li>
+                        <li><a href="#">Calendario 2</a></li>
+                        <li><a href="#">Calendario 3</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Directorio Telefónico CEDI</a>
+                </li>
+            </div>
+        </nav>
+
+        <body>
+            <!--text búsqueda y botón de búsqueda-->
+            <div class="search-container">
+                <input type="text" placeholder="Buscar..." id="search-bar" oninput="search()">
+                <!--<button type="button" id="search-button" onclick="search()">Buscar</button> -->
+            </div>
+            <!--termina lo de búsqueda-->
+
+            <!--Inicia Home-->
+            <section id="home_documentos_sicec">
+                <img class="img_home" src="https://drive.google.com/uc?export=view&id=1Qd1saMENg9US0pLt5-gjDd7Q1fceIeqb"
+                    ; alt="Imagen SICEC">
+            </section>
+            <!--Termina Home-->
+
+            <!----------Inicia documentos de calidad---------->
+            <section id="documentos_de_calidad_2">
+                <h2 class="heading">Documentos de Calidad</h2>
+                <div class="row"> <!--archivos salto de linea-->
+                    <div class="col"> <!-- 1 -->
+                        <img src="https://drive.google.com/uc?id=126JKXyRoSRCu1srzA7qcU_NFxOJUd2pn" alt="Icono de PDF">
+                        <br>
+                        <br> <!--  NO TIENE CLAVE-->
+                        <a href="https://drive.google.com/open?id=1geuWpoqhgWezONVflN3ALgVPbjqnEJfJ"
+                            target="_blank">Análisis
+                            del
+                            Contexto Interno y Externo CEDI</a>
+                    </div>
+                    <div class="col"> <!-- 2 -->
+                        <img src="https://drive.google.com/uc?id=126JKXyRoSRCu1srzA7qcU_NFxOJUd2pn" alt="Icono de PDF">
+                        <br>
+                        <br><!--  NO TIENE CLAVE-->
+                        <a href="https://drive.google.com/open?id=1L_BdzmjPP8Bllt-l_BUO-fUOla5t6kMf"
+                            target="_blank">Partes
+                            Interesadas</a>
+                    </div>
+                    <div class="col"> <!-- 3 -->
+                        <img src="https://drive.google.com/uc?id=126JKXyRoSRCu1srzA7qcU_NFxOJUd2pn" alt="Icono de PDF">
+                        <p>D-CC-01</p>
+                        <a href="https://drive.google.com/open?id=1Lc_E2Pu7zpdNSXEUd3iayDxZMtFAdTmy"
+                            target="_blank">Política de
+                            Calidad</a>
+                    </div>
+                </div>
+                <div class="row"><!--archivos salto de linea-->
+                    <div class="col"> <!-- 1 -->
+                        <img src="https://drive.google.com/uc?id=126JKXyRoSRCu1srzA7qcU_NFxOJUd2pn" alt="Icono de PDF">
+                        <p>D-CC-02</p>
+                        <a href="https://drive.google.com/file/d/1Q8wOU4yZGczz0AqWKMqUyfmey9Ivwh5X/view?usp=drive_link"
+                            target="_blank">Objetivos de Calidad</a>
+                    </div>
+                    <div class="col"> <!-- 2 -->
+                        <img src="https://drive.google.com/uc?id=126JKXyRoSRCu1srzA7qcU_NFxOJUd2pn" alt="Icono de PDF">
+                        <p>D-CC-04</p>
+                        <a href="https://drive.google.com/file/d/1fc9mH_9lFwoOZjIEToJu_iumwi7rKCTw/view?usp=sharing"
+                            target="_blank">Plan Operativo y de Calidad (POyC)</a>
+                    </div>
+                    <div class="col"> <!-- 3 -->
+                        <img src="https://drive.google.com/uc?id=126JKXyRoSRCu1srzA7qcU_NFxOJUd2pn" alt="Icono de PDF">
+                        <p>D-DG-01</p>
+                        <a href="https://drive.google.com/file/d/1Xpo8Fnc_NIPNLh0dEF94hIsM1Q8ZyAPr"
+                            target="_blank">Misión,
+                            Visión
+                            y Perfil de egreso</a>
+                    </div>
+                </div>
+                <div class="row"> <!--archivos salto de linea-->
+                    <div class="col"> <!-- 1 -->
+                        <img src="https://drive.google.com/uc?id=126JKXyRoSRCu1srzA7qcU_NFxOJUd2pn" alt="Icono de PDF">
+                        <p>D-DG-03</p>
+                        <a href="https://drive.google.com/file/d/1Tw00EsgfpaQOyZaxJ7psMqCqDi5jvCFg/view?usp=drive_link"
+                            target="_blank">Precios de Uniformes</a>
+                    </div>
+                    <div class="col"> <!-- 2 -->
+                        <img src="https://drive.google.com/uc?id=126JKXyRoSRCu1srzA7qcU_NFxOJUd2pn" alt="Icono de PDF">
+                        <p>D-DG-04</p>
+                        <a href="https://drive.google.com/file/d/1fk35pI4-WLbyjKyayTcyUmBDolzTk46E/view?usp=sharing"
+                            target="_blank">Requisitos del Cliente identificados por el CEDI</a>
+                    </div>
+                    <div class="col"> <!-- 3 -->
+                        <img src="https://drive.google.com/uc?id=126JKXyRoSRCu1srzA7qcU_NFxOJUd2pn" alt="Icono de PDF">
+                        <p>D-AG-01</p>
+                        <a href="https://drive.google.com/open?id=13-WoVPu6pbjUIwyZyvt-hoYC5xgA5jmm"
+                            target="_blank">Requerimientos
+                            y Protocolo Para Ceremonias de Fin de Ciclo</a>
+                    </div>
+                </div>
+                <div class="row"> <!--archivos salto de linea-->
+                    <div class="col"> <!-- 1 -->
+                        <img src="https://drive.google.com/uc?id=126JKXyRoSRCu1srzA7qcU_NFxOJUd2pn" alt="Icono de PDF">
+                        <p>D-RH-08</p>
+                        <a href="https://drive.google.com/file/d/1ELwcrJc-_UqPU9JGojGc1pOhj5cyGNKX/view?usp=sharing"
+                            target="_blank">Plan de acción ante extorsión telefónica</a>
+                    </div>
+                    <div class="col"> <!-- 2 -->
+                        <img src="https://drive.google.com/uc?id=126JKXyRoSRCu1srzA7qcU_NFxOJUd2pn" alt="Icono de PDF">
+                        <p>SC</p>
+                        <a href="https://drive.google.com/open?id=15YaP7Dg73Sp2LRzCxEaoQPZFwcZ4AAxN"
+                            target="_blank">Aviso de
+                            privacidad</a>
+                    </div>
+                    <div class="col"> <!-- 3 -->
+                        <img src="https://drive.google.com/uc?id=126JKXyRoSRCu1srzA7qcU_NFxOJUd2pn" alt="Icono de PDF">
+                        <p>SC</p>
+                        <a href="https://drive.google.com/file/d/1_wQP240G1HVHAvPEtKL88hCf7qgdlMKe/view?usp=sharing"
+                            target="_blank">Pirámide de Valores Institucionales CEDI</a>
+                    </div>
+                </div>
+
+                <div class="row"> <!--archivos salto de linea-->
+                    <div class="col"> <!-- 1 -->
+                        <img src="https://drive.google.com/uc?id=126JKXyRoSRCu1srzA7qcU_NFxOJUd2pn" alt="Icono de PDF">
+                        <p>SC</p>
+                        <a href="https://drive.google.com/open?id=1272t8-fLJW2RYaUS-A-AEvxEvJnFiuxf"
+                            target="_blank">Aplicación
+                            de
+                            requerimientos ISO 9001:2015 a través del SICEC</a>
+                    </div>
+                    <div class="col"> <!-- 2 -->
+                        <img src="https://drive.google.com/uc?id=126JKXyRoSRCu1srzA7qcU_NFxOJUd2pn" alt="Icono de PDF">
+                        <p>SC</p>
+                        <a href="https://drive.google.com/file/d/1SlVPcKOnkf5QCKrsGsS3EQSeLs5Gi4rL/view?usp=sharing"
+                            target="_blank">Mínimos indispensables para estar listos para Auditoría</a>
+                    </div>
+                    <div class="col"> <!-- 3 -->
+                        <img src="https://drive.google.com/uc?id=126JKXyRoSRCu1srzA7qcU_NFxOJUd2pn" alt="Icono de PDF">
+                        <p>SC</p>
+                        <a href="https://drive.google.com/open?id=1pLoIuxgcPy-cVtBjUHwVtAA3JnFfzho4" target="_blank">
+                            Política
+                            de
+                            Prevención de Riesgos psicosociales</a>
+                    </div>
+                </div>
+                <div class="row"> <!--archivos salto de linea-->
+                    <div class="col"> <!-- 1 -->
+                        <img src="https://drive.google.com/uc?id=126JKXyRoSRCu1srzA7qcU_NFxOJUd2pn" alt="Icono de PDF">
+                        <p>SC</p>
+                        <a href="https://drive.google.com/file/d/1DMdXvgyx5OJs3f2ITPlOwoo5wpv76ZTq/view?usp=sharing"
+                            target="_blank">Planificador-reportes indicadores 22-23</a>
+                    </div>
+                </div>
+
+            </section>
+            <!----------Termina documentos de calidad---------->
+
+            <!----------inicia calendarios escolares---------->
+            <section id="calendarios_escolares">
+                <h2 class="heading">Calendarios Escolares</h2>
+                <div class="row"> <!--archivos salto de linea-->
+                    <div class="col"> <!-- 1 -->
+                        <img src="https://drive.google.com/uc?id=126JKXyRoSRCu1srzA7qcU_NFxOJUd2pn" alt="Icono de PDF">
+                        <p>Calendario Escolar CEDI</p>
+                        <a href="https://drive.google.com/file/d/1RwyFW7U0LaquTHsriJ6EC2zrILMDGtOu/view?usp=sharing"
+                            target="blank">Preschool</a>
+                    </div>
+                    <div class="col"> <!-- 2 -->
+                        <img src="https://drive.google.com/uc?id=126JKXyRoSRCu1srzA7qcU_NFxOJUd2pn" alt="Icono de PDF">
+                        <p>Calendario Escolar CEDI</p>
+                        <a href="https://drive.google.com/file/d/1G9nycY0Vlc0EgGK13b8ISJKDa8SOTWkw/view?usp=sharing"
+                            target="blank">Primaria</a>
+                    </div>
+                    <div class="col"> <!-- 3 -->
+                        <img src="https://drive.google.com/uc?id=126JKXyRoSRCu1srzA7qcU_NFxOJUd2pn" alt="Icono de PDF">
+                        <p>Calendario Escolar CEDI</p>
+                        <a href="https://drive.google.com/file/d/1ugEmoBX-5t84BA9Vtw9ysQiz_AixO88K/view?usp=sharing"
+                            target="blank">Secundaria</a>
+                    </div>
+                </div>
+                <div class="row"> <!--archivos salto de linea-->
+                    <div class="col"> <!-- 1 -->
+                        <img src="https://drive.google.com/uc?id=126JKXyRoSRCu1srzA7qcU_NFxOJUd2pn" alt="Icono de PDF">
+                        <p>Calendario Escolar CEDI</p>
+                        <a href="https://drive.google.com/file/d/13dAsD4kw3D6fgkXU2e6fhptTR2tvqCOR/view?usp=sharing"
+                            target="blank">Bachillerato</a>
+                    </div>
+                </div>
+            </section>
+            <!----------Termina calendarios escolares---------->
+
+
+            <!--acción de no resultado-->
+            <div id="no-results">No se encontraron resultados.</div>
+    </div><!--cierra div de container-->
+    <!------------------SCRIPS JS--------------------->
+
+    <!--script para la navegación del menu-->
+    <script>
+        // Función para mostrar el menú al pasar el cursor sobre la hamburguesa
+        function showMenu() {
+            var menu = document.getElementById("menu");
+            menu.classList.add("active");
+        }
+
+        // Función para ocultar el menú al quitar el cursor de la hamburguesa
+        function hideMenu() {
+            var menu = document.getElementById("menu");
+            menu.classList.remove("active");
+        }
+
+        // Función para mostrar u ocultar los submenus
+        function toggleSubmenu(submenuId) {
+            var submenu = document.getElementById(submenuId);
+            submenu.classList.toggle("active");
+        }
+
+    </script>
+
+    <!--Función para la vista de las paginas en una solo vista por section-->
+    <script>
+        // Espera a que el documento esté completamente cargado
+        document.addEventListener("DOMContentLoaded", function () {
+            // Obtén todos los enlaces del menú de navegación
+            var enlaces = document.querySelectorAll("nav ul li a");
+
+            // Itera sobre cada enlace
+            enlaces.forEach(function (enlace) {
+                // Escucha el evento clic en cada enlace
+                enlace.addEventListener("click", function (evento) {
+                    // Evita que se siga el enlace por defecto
+                    evento.preventDefault();
+
+                    // Obtén el identificador de la sección a mostrar
+                    var seccionId = enlace.getAttribute("href");
+
+                    // Oculta todas las secciones
+                    document.querySelectorAll("section").forEach(function (seccion) {
+                        seccion.style.display = "none";
+                    });
+
+                    // Muestra la sección correspondiente al enlace seleccionado
+                    document.querySelector(seccionId).style.display = "block";
+                });
+            });
+        });
+    </script>
+
+    <!--primera carga del home-->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var isFirstVisit = !localStorage.getItem("visited");
+
+            if (isFirstVisit) {
+                // Ocultar todas las secciones
+                var sections = document.querySelectorAll("section");
+                sections.forEach(function (section) {
+                    section.classList.add("section-hidden");
+                });
+
+                // Mostrar la sección "home_documentos_sicec"
+                var homeDocumentosSicec = document.getElementById("home_documentos_sicec");
+                homeDocumentosSicec.classList.add("section-visible");
+
+                // Guardar el valor para indicar que se ha visitado la página
+                localStorage.setItem("visited", true);
+            }
+        });
+
+    </script>
+
+
+    <!--Función para la búsqueda en la pagina (solo local no busca en otras paginas)-->
+    <script>
+        function search() {
+            var input = document.getElementById("search-bar");
+            var filter = input.value.trim().toLowerCase().replace(/[^a-zA-Z0-9- ]/g, ""); // Elimina caracteres especiales
+            var rows = document.getElementsByClassName("row");
+            var noResults = document.getElementById("no-results");
+            noResults.style.display = "none";
+
+            var count = 0;
+            var targetElement = null;
+
+            // Iterar por todas las filas y columnas
+            for (var i = 0; i < rows.length; i++) {
+                var cols = rows[i].getElementsByClassName("col");
+                for (var j = 0; j < cols.length; j++) {
+                    var title = cols[j].getElementsByTagName("a")[0].innerHTML.trim().toLowerCase().replace(/[^a-zA-Z0-9- ]/g, "");
+                    var description = cols[j].getElementsByTagName("p")[0];
+                    if (description) {
+                        description = description.innerHTML.trim().toLowerCase().replace(/[^a-zA-Z0-9- ]/g, "");
+                    }
+                    if (title.indexOf(filter) > -1 || (description && description.indexOf(filter) > -1)) {
+                        cols[j].style.display = "";
+                        count++;
+
+                        // Almacenar el elemento objetivo
+                        targetElement = cols[j];
+                    } else {
+                        cols[j].style.display = "none";
+                    }
+                }
+            }
+
+            // Desplazamiento suave hacia la ubicación del elemento encontrado
+            if (targetElement) {
+                // Mostrar la sección que contiene el elemento objetivo
+                var section = targetElement.closest("section");
+                section.style.display = "block";
+
+                // Ocultar las demás secciones
+                var sections = document.querySelectorAll("section:not([id='" + section.id + "'])");
+                sections.forEach(function (section) {
+                    section.style.display = "none";
+                });
+
+                // Desplazarse suavemente hacia el elemento objetivo
+                targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
+            }
+
+            // Mostrar el mensaje si no hay resultados
+            if (count == 0) {
+                noResults.style.display = "block";
+            }
+        }
+    </script>
+
+
+
+</body>
+
+</html>
