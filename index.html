@@ -343,6 +343,29 @@
             font-size: 30px;
         }
 
+        /*-------------------------Directorio CEDI--------------------------------- */
+        .img_directorio {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 150vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .img_directorio img {
+            max-width: 100%;
+            max-height: 100%;
+            transition: transform 0.3s;
+        }
+
+        .img_directorio img:hover {
+            transform: scale(1.2);
+            /* Aplicamos un zoom de 1.2 (20%) a la imagen */
+            cursor: zoom-in;
+            /* Cambiamos el cursor a "zoom-in" */
+        }
+
         /*---------------------#No-Resultados, Termina CSS------------------------- */
 
         /*---------------------#Linea Divisora, Inicia CSS------------------------- */
@@ -464,7 +487,8 @@
                                 <a href="#home_documentos_sicec" onclick="toggleSubmenu('submenu1_1')">Auditoría</a>
                             </li>
                             <ul id="submenu1_1" class="submenu"><!--Abre submenu1_1-->
-                                <li><a href="#reporte_integral_de_auditoria" tittle="Reporte Integral de Auditoria">Reporte Integral de Auditoria</a></li>
+                                <li><a href="#reporte_integral_de_auditoria"
+                                        tittle="Reporte Integral de Auditoria">Reporte Integral de Auditoria</a></li>
                             </ul><!--Cierra submenu 1_1-->
                             <!--termina Auditoría-->
 
@@ -472,7 +496,8 @@
                                 <a href="#home_documentos_sicec" onclick="toggleSubmenu('submenu1_2')">Capacitación</a>
                             </li>
                             <ul id="submenu1_2" class="submenu"><!--Abre submenu1_2-->
-                                <li><a href="#Cursos de capacitación" tittle="Cursos de capacitación">Cursos de capacitación</a></li>
+                                <li><a href="#Cursos de capacitación" tittle="Cursos de capacitación">Cursos de
+                                        capacitación</a></li>
                             </ul><!--Cierra submenu 1_2-->
                             <!--termina Capacitación-->
 
@@ -490,7 +515,8 @@
                             <!--termina documentos de calidad-->
 
                             <li><!--inicia Formatos / Registros-->
-                                <a href="#home_documentos_sicec" onclick="toggleSubmenu('submenu1_4')">Formatos / Registros</a>
+                                <a href="#home_documentos_sicec" onclick="toggleSubmenu('submenu1_4')">Formatos /
+                                    Registros</a>
                             </li>
                             <ul id="submenu1_4" class="submenu"><!--Abre submenu1_4-->
                                 <li><a href="#FF-AD" tittle="Formatos - Administración">FF-AD</a></li>
@@ -506,7 +532,8 @@
                             <!--termina Formatos / Registros-->
 
                             <li><!--inicia Formatos / Registros-->
-                                <a href="#home_documentos_sicec" onclick="toggleSubmenu('submenu1_5')">Instrucciones de Trabajo</a>
+                                <a href="#home_documentos_sicec" onclick="toggleSubmenu('submenu1_5')">Instrucciones de
+                                    Trabajo</a>
                             </li>
                             <ul id="submenu1_5" class="submenu"><!--Abre submenu1_5-->
                                 <li><a href="#IT-AD" tittle="Instrucciones de Trabajo  - Administración">IT-AD</a></li>
@@ -515,7 +542,8 @@
                                 <li><a href="#IT-CE" tittle="Instrucciones - Control Escolar">IT-CE</a></li>
                                 <li><a href="#IT-DG" tittle="Instrucciones - Dirección General">IT-DG</a></li>
                                 <li><a href="#IT-RH" tittle="Instrucciones - Recursos Humanos ">IT-RH</a></li>
-                                <li><a href="#IT-RP" tittle="Instrucciones - Promoción y Relaciones Públicas">IT-RP</a></li>
+                                <li><a href="#IT-RP" tittle="Instrucciones - Promoción y Relaciones Públicas">IT-RP</a>
+                                </li>
                                 <li><a href="#IT-SI" tittle="Instrucciones - Sistemas ">IT-SI</a></li>
                                 <li><a href="#IT-TV" tittle="Instrucciones - Talleres Vespertinos ">IT-TV</a></li>
                             </ul><!--Cierra submenu 1_5-->
@@ -556,23 +584,24 @@
                             </ul> <!--Cierra submenu1_8-->
                             <!--termina perfiles de puesto-->
 
-                            
+
                             <!--inicia Perfiles de Puesto-->
-                            <li><a href="#home_documentos_sicec" onclick="toggleSubmenu('submenu1_9')">Procedimientos</a>
-                        </li>
-                        <ul id="submenu1_9" class="submenu"> <!--Abre submenu 1_9-->
-                            <li><a href="#P-AD" title="Procedimientos - Administrativo">P-AD</a></li>
-                            <li><a href="#P-AG" title="Procedimientos - Académico General ">P-AG</a></li>
-                            <li><a href="#P-CC" title="Procedimientos - Control de Calidad ">P-CC</a></li>
-                            <li><a href="#P-CE" title="Procedimientos - Control Escolar">P-CE</a></li>
-                            <li><a href="#P-DG" title="Procedimientos - Dirección General">P-DG</a></li>
-                            <li><a href="#P-RH" title="Procedimientos - Recursos Humanos">P-RH</a></li>
-                            <li><a href="#P-RP" title="Procedimientos - Recursos Promoción y
+                            <li><a href="#home_documentos_sicec"
+                                    onclick="toggleSubmenu('submenu1_9')">Procedimientos</a>
+                            </li>
+                            <ul id="submenu1_9" class="submenu"> <!--Abre submenu 1_9-->
+                                <li><a href="#P-AD" title="Procedimientos - Administrativo">P-AD</a></li>
+                                <li><a href="#P-AG" title="Procedimientos - Académico General ">P-AG</a></li>
+                                <li><a href="#P-CC" title="Procedimientos - Control de Calidad ">P-CC</a></li>
+                                <li><a href="#P-CE" title="Procedimientos - Control Escolar">P-CE</a></li>
+                                <li><a href="#P-DG" title="Procedimientos - Dirección General">P-DG</a></li>
+                                <li><a href="#P-RH" title="Procedimientos - Recursos Humanos">P-RH</a></li>
+                                <li><a href="#P-RP" title="Procedimientos - Recursos Promoción y
                                 Relaciones Públicas">P-RP</a></li>
-                            <li><a href="#P-SI" title="Procedimientos - Sistemas">P-SI</a></li>
-                            <li><a href="#P-TV" title="Procedimientos - Talleres Vespertinos">P-TV</a></li>
-                        </ul> <!--Cierra submenu1_9-->
-                        <!--termina perfiles de puesto-->
+                                <li><a href="#P-SI" title="Procedimientos - Sistemas">P-SI</a></li>
+                                <li><a href="#P-TV" title="Procedimientos - Talleres Vespertinos">P-TV</a></li>
+                            </ul> <!--Cierra submenu1_9-->
+                            <!--termina perfiles de puesto-->
 
                         </ul><!--Cierra submenu1-->
                     </li><!--Termina lista de Documentos SICEC-->
@@ -581,7 +610,7 @@
                     <li> <!--Inicia Programas Académicos-->
                         <a href="#home_documentos_sicec" onclick="toggleSubmenu('submenu2')">Programas Académicos</a>
                         <ul id="submenu2" class="submenu"><!--Abre submenu2-->
-                
+
                             <li><!--inicia Preescolar-->
                                 <a href="#home_documentos_sicec" onclick="toggleSubmenu('submenu2_1')">Preescolar</a>
                             </li>
@@ -591,7 +620,7 @@
                                 <li><a href="#" tittle="Nivel - grado">#° grado </a></li>
                             </ul><!--Cierra submenu 2_1-->
                             <!--termina Preescolar-->
-                
+
                             <li><!--inicia Primaria-->
                                 <a href="#home_documentos_sicec" onclick="toggleSubmenu('submenu2_2')">Primaria</a>
                             </li>
@@ -604,7 +633,7 @@
                                 <li><a href="#" tittle="Nivel - grado">#° grado </a></li>
                             </ul><!--Cierra submenu 2_2-->
                             <!--termina Primaria-->
-                
+
                             <li><!--inicia Preescolar-->
                                 <a href="#home_documentos_sicec" onclick="toggleSubmenu('submenu2_3')">Secundaria</a>
                             </li>
@@ -614,7 +643,7 @@
                                 <li><a href="#" tittle="Nivel - grado">#° grado </a></li>
                             </ul><!--Cierra submenu 2_3-->
                             <!--termina Secundaria-->
-                
+
                             <li><!--inicia Primaria-->
                                 <a href="#home_documentos_sicec" onclick="toggleSubmenu('submenu2_4')">Bachillerato</a>
                             </li>
@@ -627,36 +656,46 @@
                                 <li><a href="#" tittle="Nivel - Semestre">#° Semestre </a></li>
                             </ul><!--Cierra submenu 2_4-->
                             <!--termina Primaria-->
-                
+
                             <li><!--inicia Portafolios-->
                                 <a href="#home_documentos_sicec" onclick="toggleSubmenu('submenu2_5')">Portafolios</a>
                             </li>
                             <ul id="submenu2_5" class="submenu"><!--Abre submenu2_5-->
-                                <li><a href="#Evidencia Académica" tittle="Evidencia Académica">Evidencia Académica </a></li>
+                                <li><a href="#Evidencia Académica" tittle="Evidencia Académica">Evidencia Académica </a>
+                                </li>
                             </ul><!--Cierra submenu 2_5-->
                             <!--termina Portafolios-->
-                
+
                             <li><!--inicia Curricula-->
                                 <a href="#home_documentos_sicec" onclick="toggleSubmenu('submenu2_6')">Curricula</a>
                             </li>
                             <ul id="submenu2_6" class="submenu"><!--Abre submenu2_6-->
-                                <li><a href="#Curricula Academia CEDI" tittle="Curricula Academia CEDI">Curricula Academia CEDI</a></li>
+                                <li><a href="#Curricula Academia CEDI" tittle="Curricula Academia CEDI">Curricula
+                                        Academia CEDI</a></li>
                             </ul><!--Cierra submenu 2_5-->
                             <!--termina Curricula-->
-                            
+
                         </ul><!--Cierra submenu1-->
                     </li><!--Termina Programas Académicos-->
                 </ul><!--Termina Programas Académicos-->
-                    <a href="#3">Formularios CEDI</a>
-                    <ul id="submenu3" class="submenu">
-                        <li><a href="#">Calendario 1</a></li>
-                        <li><a href="#">Calendario 2</a></li>
-                        <li><a href="#">Calendario 3</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">Directorio Telefónico CEDI</a>
-                </li>
+
+                <!--Inicia Formularios CEDI-->
+                <ul>
+                    <li>
+                        <a href="#formularios_cedi" onclick="toggleSubmenu('submenu3')">Formularios CEDI</a>
+                    </li>
+
+                </ul>
+                <!--Termina Formularios CEDI-->
+
+                <!--Inicia Directorio Telefónico CEDI-->
+                <ul>
+                    <li>
+                        <a href="#directorio_cedi" onclick="toggleSubmenu('submenu4')">Directorio Telefónico CEDI</a>
+                    </li>
+                </ul>
+                <!--Termina Directorio Telefónico CEDI-->
+
             </div>
         </nav>
 
@@ -839,9 +878,45 @@
             </section>
             <!----------Termina calendarios escolares---------->
 
+            <!--Inicia Formularios CEDI-->
+            <section id="formularios_cedi">
+                <h2 class="heading">Formularios CEDI</h2>
+                <!--Inicia-->
+                <div class="row"> <!--archivos salto de linea-->
+                    <div class="col"> <!-- 1 -->
+                        <img src="https://drive.google.com/uc?id=1alcbylTliirBblwLsw0yiMTA12fYfk2U" alt="Icono de Monday">
+                        <br>
+                        <br>
+                        <a href="https://forms.monday.com/forms/aa6a554075ef72024cc91bcdfb7dde1e?r=use1" target="blank">Solicitud de soporte TI</a>
+                    </div>
+                    <div class="col"> <!-- 2 -->
+                        <img src="https://drive.google.com/uc?id=1alcbylTliirBblwLsw0yiMTA12fYfk2U" alt="Icono de Monday">
+                        <br>
+                        <br>
+                        <a href="https://forms.monday.com/forms/2c8b9a3da0eed917fb2555a79f78db18?r=use1" target="blank">Solicitud de mantenimiento / evento</a>
+                    </div>
+                    <div class="col"> <!-- 3 -->
+                        <img src="https://drive.google.com/uc?id=1alcbylTliirBblwLsw0yiMTA12fYfk2U" alt="Icono de Monday">
+                        <br>
+                        <br>
+                        <a href="https://forms.monday.com/forms/d27f1bd001f90e53e961dad5e12c7e65?r=use1" target="blank" title="Verificación semanal solo afanadoras">Verificación Semanal de Instalaciones</a>
+                    </div>
+                </div>
+                <!--Termina-->
 
-            <!--acción de no resultado-->
-            <div id="no-results">No se encontraron resultados.</div>
+            </section>
+
+            <!--Cierra Formularios CEDI-->
+
+            <!--Inicio Directorio CEDI-->
+            <section id="directorio_cedi">
+                <!--Termina Directorio CEDI-->
+                <div class="img_directorio">
+                    <img src="https://drive.google.com/uc?id=1F5GJ5Vbvfv5vFvqq7pShE5pVYDmY2fge">
+                </div>
+                <!--acción de no resultado-->
+                <div id="no-results">No se encontraron resultados.</div>
+            </section>
     </div><!--cierra div de container-->
     <!------------------SCRIPS JS--------------------->
 
